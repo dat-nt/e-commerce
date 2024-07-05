@@ -1,28 +1,40 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
-import LoginForm from "./pages/LoginForm";
-import Dashboard from "./layouts/Dashboard";
-import ProductsList from "./pages/ProductsList";
-import AddProduct from "./pages/AddProduct";
-import AddCategory from "./pages/AddCategory";
-import Cart from "./pages/Cart";
 
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Login from './pages/Login';
+import Products from './pages/Products';
+import Cart from './pages/Cart';
+
+import AddProduct from './pages/AddProduct';
+import AddCategory from './pages/AddCategory';
+import AdminLayout from './layouts/AdminLayout';
+import DashboardLayout from "./layouts/DashboardLayout";
+import Home from "./pages/Home";
+import Admin from "./pages/Admin";
+import Payment from "./pages/Payment";
 
 const App: React.FC = () => {
+    return (
+        <>
+            <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/dashboard" element={<DashboardLayout />}>
+                    <Route path="" element={<Home />} />
+                    <Route path="products" element={<Products />} />
+                    <Route path="cart" element={<Cart />} />
+                    <Route path="payment" element={<Payment />} />
+                </Route>
+                <Route path="/admin" element={<AdminLayout />}>
+                    <Route path="" element={<Admin />} />
+                    <Route path="add-product" element={<AddProduct />} />
+                    <Route path="add-category" element={<AddCategory />} />
+                </Route>
+            </Routes>
 
-  return (
-    <div className="App">
-      <Routes>
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/products" element={<ProductsList />} />
-        <Route path="/add-product" element={<AddProduct />} />
-        <Route path="/add-category" element={<AddCategory />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/" element={<LoginForm />} />
-      </Routes>
-    </div>
-  )
-}
+        </>
+    );
+};
 
-export default App
+export default App;

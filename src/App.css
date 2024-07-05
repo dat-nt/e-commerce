@@ -1,20 +1,33 @@
-/* src/Login.css */
 .login-container {
+    background-image: url("./assets/bg-image.jpg");
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #f0f2f5;
+    background-size: cover;
+    background-position: center;
 }
 
 .login-form {
-    width: 600px;
+    background: rgba(223, 203, 210, 0.8);
     padding: 24px;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
 }
 
-.login-form-button {
-    width: 100%;
+.login-submit {
+    margin-top: 40px;
+}
+
+.menu-icon {
+    font-size: 20px !important;
+    margin-right: 10px;
+}
+
+.admin-layout {
+    height: 100vh;
+    padding: 0;
+    background: url("./assets/bg-admin.jpg") center/cover no-repeat fixed;
 }
