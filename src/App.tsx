@@ -24,14 +24,14 @@ const App: React.FC = () => {
                     <Route path="" element={<Home />} />
                     <Route path="products" element={<Products />} />
                     <Route path="cart" element={<Cart />} />
-                    <Route path="payment" element={<Payment />} />
+                    <Route path="cart/payment" element={<Payment />} />
                 </Route>
                 <Route path="/admin" element={<AdminLayout />}>
                     <Route path="" element={<Admin />} />
                     <Route path="add-product" element={<AddProduct />} />
                     <Route path="add-category" element={<AddCategory />} />
                 </Route>
-            </Routes>
+            </Routes >
 
         </>
     );

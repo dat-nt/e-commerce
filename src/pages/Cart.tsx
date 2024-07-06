@@ -78,7 +78,7 @@ const CartPage: React.FC = () => {
 
     const proceedToCheckout = () => {
         if (cartItems.length > 0) {
-            navigate("/dashboard/payment");
+            navigate("payment");
         }
         else {
             message.error("You don't have any products in your shopping cart!");
