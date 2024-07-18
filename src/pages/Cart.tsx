@@ -85,7 +85,8 @@ const CartPage: React.FC = () => {
         }
     }
 
-    const total = cartItems.reduce((acc: number, item: any) => acc + item.price * item.quantity, 0);
+    const total = cartItems.reduce(
+        (acc: number, item: any) => acc + item.price * item.quantity, 0);
 
     return (
         <>

@@ -8,6 +8,7 @@ import { ShoppingCartOutlined } from '@ant-design/icons';
 import Search from './Search';
 import FilterRange from './FilterRange';
 import { getProducts } from '../api/productApi';
+import { getCategories } from '../api/categoryApi';
 
 const { Title } = Typography;
 
@@ -20,6 +21,11 @@ const ProductTable: React.FC = () => {
     const { data: products, isLoading } = useQuery<Product[]>({
         queryKey: ['products-table', location.search],
         queryFn: () => getProducts(searchParams)
+    });
+
+    const { data: categories } = useQuery<Category[]>({
+        queryKey: ['categories'],
+        queryFn: () => getCategories()
     });
 
     useEffect(() => {
@@ -114,6 +120,9 @@ const ProductTable: React.FC = () => {
             dataIndex: 'category',
             key: 'category',
             width: 120,
+            filters: categories?.map(category => ({ text: category.name, value: category.name })),
+            filterSearch: true,
+            onFilter: (value, record) => record.category?.name === value,
             render: (category: Category) => category.name,
         },
         {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout, Menu, Typography, theme } from 'antd';
 import { Link, Outlet } from 'react-router-dom';
-import { AppstoreAddOutlined, HomeOutlined, ReconciliationOutlined } from '@ant-design/icons';
+import { AppstoreAddOutlined, HomeOutlined, ReconciliationOutlined, UnorderedListOutlined } from '@ant-design/icons';
 
 const { Sider, Content } = Layout;
 
@@ -26,8 +26,14 @@ const AdminLayout: React.FC = () => {
                     mode="inline"
                     style={{ fontSize: "16px" }}
                 >
+                    <Menu.Item key="products"
+                        icon={<UnorderedListOutlined className="menu-icon" />}
+                    >
+                        <Link to="products">Products list</Link>
+                    </Menu.Item>
                     <Menu.Item key="add-product"
                         icon={<AppstoreAddOutlined className="menu-icon" />}
+
                     >
                         <Link to="add-product">Add product</Link>
                     </Menu.Item>
